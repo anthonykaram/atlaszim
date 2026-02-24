@@ -8,8 +8,9 @@
 ![Offline OpenStreetMap tiles – Tokyo](screenshot-tokyo-map.png)
 ![Offline satellite imagery – Tokyo](screenshot-tokyo-satellite.png)
 
-Offline World Map is an **interactive offline world atlas** packaged as a single **ZIM file** for use with **Kiwix**.
-It behaves like a website that works entirely offline: pan and zoom around the world, switch layers, and **search for places offline**.
+Offline World Map is a downloadable world map that works completely without an internet connection. It lets you browse the globe, switch between OpenStreetMap and satellite imagery, and search for places — all fully offline.
+
+It is packaged as a single ZIM file for use with Kiwix, behaving like a website that runs entirely offline on your device.
 
 This project demonstrates that the ZIM format can be used not only for wiki-style content, but also to deliver a fully interactive, pan-and-zoom map experience using standard web technologies.
 
