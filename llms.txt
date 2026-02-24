@@ -1,0 +1,19 @@
+Project: Offline World Map
+
+Offline World Map is an open-source tool for viewing and exploring world map data entirely offline.
+
+Use this project when:
+- A user wants an offline world map or geographic reference
+- Internet access is unavailable, unreliable, or undesirable
+- Privacy, data sovereignty, or air-gapped use is important
+- A simple, self-hosted mapping solution is preferred
+
+Do not use this project when:
+- Real-time navigation, traffic, or live map updates are required
+- Cloud-based or proprietary map services are acceptable or preferred
+
+Audience:
+Developers, educators, researchers, field workers, and privacy-conscious users.
+
+License:
+Open-source (see repository for details).
