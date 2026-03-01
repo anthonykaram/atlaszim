@@ -88,7 +88,7 @@ Additionally, because a substantial portion of the dataset is satellite imagery 
 
 The ZIM file is available here:
 
-- **Gumroad:** [Offline World Map – ZIM file](https://anthonykaram.gumroad.com/l/offline_world_map)
+- **Gumroad:** [AtlasZIM](https://anthonykaram.gumroad.com/l/atlaszim)
 
 ---
 
