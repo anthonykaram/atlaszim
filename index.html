@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>AtlasZIM — Offline World Atlas (.ZIM for Kiwix)</title>
+  <meta name="description" content="AtlasZIM is a fully offline world atlas packaged as a single ZIM file for Kiwix. Browse the globe, switch between OpenStreetMap and satellite imagery, and search for places — no internet required." />
+
+  <meta property="og:title" content="AtlasZIM — Offline World Atlas (.ZIM for Kiwix)" />
+  <meta property="og:description" content="Fully offline, interactive world atlas in a single ZIM file for Kiwix. Map + satellite imagery + offline search." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --panel: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --link: #93c5fd;
+      --accent: #22c55e;
+      --border: rgba(255,255,255,0.10);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius: 14px;
+      --maxw: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(34,197,94,0.14), transparent 60%),
+                  radial-gradient(1200px 600px at 90% 0%, rgba(147,197,253,0.12), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      padding: 26px 16px 0 16px;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(17,24,39,0.55);
+      box-shadow: var(--shadow);
+    }
+
+    .badge strong { color: var(--text); font-weight: 600; }
+
+    .hero {
+      margin-top: 12px;
+      padding: 22px 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(17,24,39,0.70);
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 34px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin: 0 0 18px 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .ctaRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 0 0;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .btn:hover { background: rgba(255,255,255,0.10); text-decoration: none; }
+
+    .btnPrimary {
+      background: rgba(34,197,94,0.18);
+      border-color: rgba(34,197,94,0.35);
+    }
+    .btnPrimary:hover { background: rgba(34,197,94,0.25); }
+
+    .btnSmall {
+      padding: 10px 12px;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin: 18px 0 0 0;
+    }
+
+    @media (min-width: 900px) {
+      .grid { grid-template-columns: 1.2fr 0.8fr; }
+    }
+
+    .card {
+      padding: 18px 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(17,24,39,0.65);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      margin: 18px 0 8px 0;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    p { margin: 10px 0; color: var(--text); }
+    .muted { color: var(--muted); }
+
+    ul { margin: 10px 0 10px 20px; }
+    li { margin: 6px 0; color: var(--text); }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 18px 0;
+    }
+
+    .media {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 700px) {
+      .media { grid-template-columns: 1fr 1fr; }
+    }
+
+    figure {
+      margin: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.20);
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      padding: 10px 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+    }
+
+    .kvs {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 700px) {
+      .kvs { grid-template-columns: 1fr 1fr; }
+    }
+
+    .kv {
+      padding: 12px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .kv .k { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+    .kv .v { color: var(--text); font-weight: 600; }
+
+    footer {
+      padding: 22px 16px 34px 16px;
+      color: var(--muted);
+    }
+
+    .tiny { font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="badge">
+          <span>📦</span>
+          <strong>AtlasZIM</strong>
+          <span class="muted">Offline World Atlas for Kiwix (.ZIM)</span>
+        </div>
+
+        <div class="badge" title="Temporary transition label">
+          <span>↪</span>
+          <span class="muted">formerly</span>
+          <strong>Offline World Map</strong>
+        </div>
+      </div>
+
+      <div class="hero">
+        <h1>AtlasZIM</h1>
+        <p class="subtitle">
+          A fully offline, zoomable world atlas packaged as a single <code>.zim</code> file for Kiwix.
+        </p>
+
+        <div class="ctaRow">
+          <!-- Fast path: go straight to payment form -->
+          <a class="btn btnPrimary gumroad-button"
+             href="https://anthonykaram.gumroad.com/l/atlaszim?wanted=true">
+            Buy AtlasZIM ($50 one-time)
+          </a>
+
+          <!-- Slower path: view product page -->
+          <a class="btn btnSmall"
+             href="https://anthonykaram.gumroad.com/l/atlaszim">
+            View product details
+          </a>
+
+          <a class="btn btnSmall"
+             href="https://github.com/anthonykaram/atlaszim">
+            GitHub repo
+          </a>
+        </div>
+
+        <div class="grid" style="margin-top:16px;">
+          <div class="card">
+            <h2>What it is</h2>
+            <p>
+              AtlasZIM is a fully interactive offline atlas: browse the globe, switch between OpenStreetMap and
+              satellite imagery, and search for places — all without needing connectivity.
+            </p>
+            <p>
+              It runs inside the Kiwix reader like an offline website, but everything is bundled into a single ZIM file.
+            </p>
+            <p class="tiny">
+              Note: this is an offline snapshot. It does not include live traffic, routing, or frequently refreshed map data.
+            </p>
+          </div>
+
+          <div class="card">
+            <h2>Quick facts</h2>
+            <div class="kvs">
+              <div class="kv">
+                <div class="k">Format</div>
+                <div class="v">ZIM file</div>
+              </div>
+              <div class="kv">
+                <div class="k">Platform</div>
+                <div class="v">Kiwix (desktop + mobile)</div>
+              </div>
+              <div class="kv">
+                <div class="k">Layers</div>
+                <div class="v">OSM tiles + satellite imagery</div>
+              </div>
+              <div class="kv">
+                <div class="k">Search</div>
+                <div class="v">Offline place lookup (GeoNames)</div>
+              </div>
+            </div>
+            <p class="tiny" style="margin-top:10px;">
+              Expect to need <strong>~25 GiB free storage</strong> (download + extraction + final ZIM).
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap" style="padding: 18px 16px 0 16px;">
+
+      <div class="card">
+        <h2>Demo</h2>
+        <figure>
+          <img src="offline_world_map_demo.gif" alt="AtlasZIM running fully offline in Kiwix (demo)" />
+          <figcaption>AtlasZIM running fully offline inside Kiwix.</figcaption>
+        </figure>
+
+        <h3>Screenshots</h3>
+        <div class="media">
+          <figure>
+            <img src="screenshot-world-map.png" alt="Offline world map — global view" />
+            <figcaption>Offline OpenStreetMap tiles — global view.</figcaption>
+          </figure>
+          <figure>
+            <img src="screenshot-world-satellite.png" alt="Offline satellite imagery — global view" />
+            <figcaption>Offline satellite imagery — global view.</figcaption>
+          </figure>
+          <figure>
+            <img src="screenshot-tokyo-map.png" alt="Offline OpenStreetMap tiles — Tokyo" />
+            <figcaption>Offline OpenStreetMap tiles — Tokyo.</figcaption>
+          </figure>
+          <figure>
+            <img src="screenshot-tokyo-satellite.png" alt="Offline satellite imagery — Tokyo" />
+            <figcaption>Offline satellite imagery — Tokyo.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>When to use this</h2>
+        <p>Use AtlasZIM when you want:</p>
+        <ul>
+          <li>A <strong>fully offline</strong> world map / digital atlas experience (no network required at runtime)</li>
+          <li>A <strong>single-file</strong> map you can archive, copy, and share easily (<code>.zim</code>)</li>
+          <li>An offline geographic reference that runs on platforms supported by <strong>Kiwix</strong> (desktop + mobile)</li>
+          <li>Offline <strong>place-name lookup/search</strong> (GeoNames-backed)</li>
+          <li>A device with <strong>~25 GiB free storage</strong> for the full release</li>
+        </ul>
+
+        <p>Not intended for:</p>
+        <ul>
+          <li>Turn-by-turn navigation, routing, or directions</li>
+          <li>Live traffic, real-time updates, or online map APIs</li>
+          <li>Scenarios where you need frequently refreshed map data (this is an offline snapshot)</li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>What this includes</h2>
+        <p>
+          AtlasZIM is a self-contained map application bundled inside a single <code>.zim</code> file. When opened in
+          Kiwix, it behaves like an offline website.
+        </p>
+        <ul>
+          <li><strong>OpenStreetMap-based raster map tiles</strong></li>
+          <li><strong>Sentinel-2 cloudless satellite imagery</strong></li>
+          <li>A <strong>Leaflet</strong>-based JavaScript map viewer</li>
+          <li>An offline place search UI built with <strong>Leaflet.Control.Search</strong> and <strong>GeoNames</strong> data</li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>Why ZIM instead of traditional offline map formats?</h2>
+        <p>
+          Most offline maps are distributed as MBTiles, vector databases, or app-specific formats. This project explores
+          a different approach: using <strong>ZIM as an offline web container</strong>.
+        </p>
+        <p>Advantages:</p>
+        <ul>
+          <li><strong>Single-file distribution</strong></li>
+          <li>Works on all platforms supported by <strong>Kiwix</strong> (desktop and mobile)</li>
+          <li>No dedicated map application required</li>
+          <li>Easy to archive and share</li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>Features</h2>
+        <ul>
+          <li>Global coverage</li>
+          <li>Multiple zoom levels</li>
+          <li>Map and satellite imagery layers</li>
+          <li>Fully offline pan-and-zoom navigation</li>
+          <li>Offline place search</li>
+          <li>Runs entirely inside the Kiwix reader</li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>Design decisions</h2>
+        <p>
+          This project intentionally uses pre-rendered raster tiles rather than vector tiles.
+        </p>
+        <p>
+          While vector tiles can significantly reduce storage requirements, they shift cost to client-side computation
+          (geometry decoding, rendering, memory usage), which is difficult to predict across the wide range of devices
+          that run Kiwix.
+        </p>
+        <p>
+          By serving simple raster tiles from a ZIM file, the map remains lightweight to render and behaves consistently
+          even on older or low-power devices. The large file size also acts as a natural capability filter: devices that
+          can store tens of gigabytes of tiles almost certainly have sufficient CPU and RAM to handle raster rendering
+          smoothly.
+        </p>
+        <p>
+          Additionally, because a substantial portion of the dataset is satellite imagery — which is inherently raster —
+          vector tiles would not reduce total size as dramatically in this context. The goal is maximum compatibility and
+          predictable performance rather than minimal disk usage.
+        </p>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>Downloads</h2>
+        <p>
+          <strong>Price:</strong> $50 — one-time purchase, includes access to the current release and all prior versions.
+        </p>
+        <p>The ZIM file is available here:</p>
+        <ul>
+          <li><strong>Gumroad:</strong> <a href="https://anthonykaram.gumroad.com/l/atlaszim">AtlasZIM</a></li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary gumroad-button"
+             href="https://anthonykaram.gumroad.com/l/atlaszim?wanted=true">
+            Buy AtlasZIM ($50 one-time)
+          </a>
+          <a class="btn btnSmall"
+             href="https://anthonykaram.gumroad.com/l/atlaszim">
+            View product details
+          </a>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>Requirements &amp; Installation</h2>
+
+        <h3>File size</h3>
+        <p>
+          The current version of AtlasZIM is approximately <strong>~19 GiB</strong>.
+          Ensure your device has sufficient free storage before downloading.
+        </p>
+
+        <h3>Download format</h3>
+        <p>
+          Because the file exceeds Gumroad’s 16 GiB limit, the download is provided as
+          multiple <code>.7z</code> archive parts.
+        </p>
+        <p>
+          After downloading all parts, use <strong>7-Zip</strong> (free, open-source)
+          or a compatible archive tool to extract and combine them into a single
+          <code>.zim</code> file.
+        </p>
+
+        <h3>How to use</h3>
+        <p>
+          Open the resulting <code>.zim</code> file with
+          <strong>Kiwix</strong> (available for Windows, macOS, Linux, Android, iOS,
+          Raspberry Pi, and more). The map runs entirely offline inside the Kiwix reader.
+        </p>
+
+        <p class="tiny">
+          Note: Coverage extends between ±85.051129° latitude due to use of the Web Mercator projection.
+        </p>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>Videos</h2>
+        <ul>
+          <li><strong>Demo of v5 (introduced search):</strong> <a href="https://youtu.be/hfey3ogmVC8">Offline World Map for Kiwix (v5)</a></li>
+          <li><strong>Demo of v4 (added Leaflet navigation):</strong> <a href="https://youtu.be/XYoBKyg8tH4">Offline World Map for Kiwix (v4)</a></li>
+          <li><strong>Demo of v1 (initial release):</strong> <a href="https://youtu.be/5qq_W7qMxxs">Offline World Map for Kiwix (v1)</a></li>
+        </ul>
+        <p class="tiny">
+          (Optional later: rename the video titles on YouTube to AtlasZIM and keep “formerly Offline World Map” in the description.)
+        </p>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>Data sources, licensing, and attribution</h2>
+        <p>This project is a compilation and packaging effort. Individual components are licensed separately:</p>
+        <ul>
+          <li><strong>OpenStreetMap</strong> data © OpenStreetMap contributors (ODbL)</li>
+          <li><strong>Satellite imagery:</strong> Sentinel-2 cloudless (CC BY 4.0, EOX IT Services GmbH)</li>
+          <li><strong>Place search data:</strong> GeoNames (CC BY 4.0)</li>
+          <li><strong>Leaflet</strong> © Vladimir Agafonkin and contributors (BSD 2-Clause)</li>
+          <li><strong>Leaflet.Control.Search</strong> (MIT-style license)</li>
+        </ul>
+        <p>Compilation, integration, and packaging © Anthony Karam.</p>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>Version history</h2>
+        <p>
+          A single purchase provides access to the current release and all prior versions.
+        </p>
+        <ul>
+          <li>
+            <strong>v5 (2026-01-21)</strong> — ~18.7 GiB —
+            Zoom levels 0–10, Leaflet navigation with offline search (GeoNames).
+          </li>
+          <li>
+            <strong>v4 (2025-12-06; minor update 2026-01-14)</strong> — ~18.7 GiB —
+            Zoom levels 0–10, Leaflet navigation without search.
+          </li>
+          <li>
+            <strong>v3 (2025-11-25)</strong> — ~10.0 GiB —
+            Zoom levels 0–9, basic navigation.
+          </li>
+          <li>
+            <strong>v2 (2025-11-25)</strong> — ~2.9 GiB —
+            Zoom levels 0–8, basic navigation.
+          </li>
+          <li>
+            <strong>v1 (2025-08)</strong> — ~1.1 GiB —
+            Map layer only, zoom levels 0–8.
+          </li>
+        </ul>
+        <p class="tiny">
+          Upcoming: when zoom level 11 is released, we’ll add it here as v6.
+        </p>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>Project metadata</h2>
+        <ul>
+          <li><strong>Project name:</strong> AtlasZIM (formerly Offline World Map)</li>
+          <li><strong>Format:</strong> ZIM file</li>
+          <li><strong>Platform:</strong> Kiwix (desktop and mobile)</li>
+          <li><strong>Category:</strong> Offline maps / geographic reference / digital atlas</li>
+          <li><strong>Technologies:</strong> Leaflet, OpenStreetMap, Sentinel-2, GeoNames</li>
+          <li><strong>Author:</strong> Anthony Karam</li>
+          <li><strong>Canonical URL:</strong> <a href="https://atlaszim.com">https://atlaszim.com</a></li>
+          <li><strong>GitHub Pages mirror:</strong> <a href="https://anthonykaram.github.io/atlaszim/">https://anthonykaram.github.io/atlaszim/</a></li>
+        </ul>
+        <p class="tiny">
+          If HTTPS isn’t enabled on the custom domain yet, GitHub may still be provisioning the certificate — check back shortly.
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="tiny">
+        © <span id="y"></span> Anthony Karam. AtlasZIM is an independent project and is not affiliated with Kiwix or OpenStreetMap.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Gumroad overlay script (optional, but nice): enables gumroad-button behavior -->
+  <script src="https://gumroad.com/js/gumroad.js"></script>
+</body>
+</html>
