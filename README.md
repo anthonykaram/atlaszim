@@ -2,7 +2,7 @@
 
 > Formerly released as **Offline World Map**
 
-![AtlasZIM running fully offline in Kiwix](offline_world_map_demo.gif)
+![AtlasZIM running fully offline in Kiwix](atlaszim_demo.gif)
 
 ![Offline world map – global view](screenshot-world-map.png)
 ![Offline satellite imagery – global view](screenshot-world-satellite.png)
