@@ -317,7 +317,7 @@
               </div>
             </div>
             <p class="tiny" style="margin-top:10px;">
-              Expect to need <strong>~25 GiB free storage</strong> (download + extraction + final ZIM).
+              Depending on the version, AtlasZIM can be large. Verify sufficient free space before downloading.
             </p>
           </div>
         </div>
@@ -367,7 +367,6 @@
           <li>A <strong>single-file</strong> map you can archive, copy, and share easily (<code>.zim</code>)</li>
           <li>An offline geographic reference that runs on platforms supported by <strong>Kiwix</strong> (desktop + mobile)</li>
           <li>Offline <strong>place-name lookup/search</strong> (GeoNames-backed)</li>
-          <li>A device with <strong>~25 GiB free storage</strong> for the full release</li>
         </ul>
 
         <p>Not intended for:</p>
@@ -422,6 +421,7 @@
           <li>Fully offline pan-and-zoom navigation</li>
           <li>Offline place search</li>
           <li>Runs entirely inside the Kiwix reader</li>
+          <li>Coverage extends between ±85.051129° latitude due to use of the Web Mercator projection.</li>
         </ul>
       </div>
 
@@ -457,11 +457,6 @@
         <p>
           <strong>Price:</strong> $50 — one-time purchase, includes access to the current release and all prior versions.
         </p>
-        <p>The ZIM file is available here:</p>
-        <ul>
-          <li><strong>Gumroad:</strong> <a href="https://anthonykaram.gumroad.com/l/atlaszim">AtlasZIM</a></li>
-        </ul>
-
         <div class="ctaRow">
           <a class="btn btnPrimary gumroad-button"
              href="https://anthonykaram.gumroad.com/l/atlaszim?wanted=true">
@@ -481,30 +476,21 @@
 
         <h3>File size</h3>
         <p>
-          The current version of AtlasZIM is approximately <strong>~19 GiB</strong>.
-          Ensure your device has sufficient free storage before downloading.
+          Depending on the version, AtlasZIM can be large.
+          Verify sufficient free space before downloading.
         </p>
 
         <h3>Download format</h3>
         <p>
-          Because the file exceeds Gumroad’s 16 GiB limit, the download is provided as
-          multiple <code>.7z</code> archive parts.
+          For some versions of AtlasZIM, the file size exceeds Gumroad’s 16 GiB limit, so the download is provided as multiple <code>.7z</code> archive parts.
         </p>
         <p>
-          After downloading all parts, use <strong>7-Zip</strong> (free, open-source)
-          or a compatible archive tool to extract and combine them into a single
-          <code>.zim</code> file.
+          For these versions, after downloading all parts, use <strong>7-Zip</strong> (free, open-source) or a compatible archive tool to extract and combine them into a single <code>.zim</code> file.
         </p>
 
         <h3>How to use</h3>
         <p>
-          Open the resulting <code>.zim</code> file with
-          <strong>Kiwix</strong> (available for Windows, macOS, Linux, Android, iOS,
-          Raspberry Pi, and more). The map runs entirely offline inside the Kiwix reader.
-        </p>
-
-        <p class="tiny">
-          Note: Coverage extends between ±85.051129° latitude due to use of the Web Mercator projection.
+          Open the resulting <code>.zim</code> file with <strong>Kiwix</strong> (available for Windows, macOS, Linux, Android, iOS, Raspberry Pi, and more). The map runs entirely offline inside the Kiwix reader.
         </p>
       </div>
 
@@ -513,13 +499,10 @@
       <div class="card">
         <h2>Videos</h2>
         <ul>
-          <li><strong>Demo of v5 (introduced search):</strong> <a href="https://youtu.be/hfey3ogmVC8">Offline World Map for Kiwix (v5)</a></li>
-          <li><strong>Demo of v4 (added Leaflet navigation):</strong> <a href="https://youtu.be/XYoBKyg8tH4">Offline World Map for Kiwix (v4)</a></li>
-          <li><strong>Demo of v1 (initial release):</strong> <a href="https://youtu.be/5qq_W7qMxxs">Offline World Map for Kiwix (v1)</a></li>
+          <li><strong>Demo of v5 (introduced search):</strong> <a href="https://youtu.be/hfey3ogmVC8">AtlasZIM (v5)</a></li>
+          <li><strong>Demo of v4 (added Leaflet navigation):</strong> <a href="https://youtu.be/XYoBKyg8tH4">AtlasZIM (v4)</a></li>
+          <li><strong>Demo of v1 (initial release):</strong> <a href="https://youtu.be/5qq_W7qMxxs">AtlasZIM (v1)</a></li>
         </ul>
-        <p class="tiny">
-          (Optional later: rename the video titles on YouTube to AtlasZIM and keep “formerly Offline World Map” in the description.)
-        </p>
       </div>
 
       <hr />
@@ -545,30 +528,12 @@
           A single purchase provides access to the current release and all prior versions.
         </p>
         <ul>
-          <li>
-            <strong>v5 (2026-01-21)</strong> — ~18.7 GiB —
-            Zoom levels 0–10, Leaflet navigation with offline search (GeoNames).
-          </li>
-          <li>
-            <strong>v4 (2025-12-06; minor update 2026-01-14)</strong> — ~18.7 GiB —
-            Zoom levels 0–10, Leaflet navigation without search.
-          </li>
-          <li>
-            <strong>v3 (2025-11-25)</strong> — ~10.0 GiB —
-            Zoom levels 0–9, basic navigation.
-          </li>
-          <li>
-            <strong>v2 (2025-11-25)</strong> — ~2.9 GiB —
-            Zoom levels 0–8, basic navigation.
-          </li>
-          <li>
-            <strong>v1 (2025-08)</strong> — ~1.1 GiB —
-            Map layer only, zoom levels 0–8.
-          </li>
+          <li><strong>v5 (current):</strong> released 2026-01-21, ~18.7 GiB ZIM file, map data (from 2025) and satellite data, zoom levels 0-10, Leaflet-based navigation with search functionality</li>
+          <li><strong>v4:</strong> released 2025-12-06 (with minor update 2026-01-14), ~18.7 GiB ZIM file, map data (from 2025) and satellite data, zoom levels 0-10, Leaflet-based navigation without search functionality</li>
+          <li><strong>v3:</strong> released 2025-11-25, ~10.0 GiB ZIM file, map data (from 2025) and satellite data, zoom levels 0-9 (equivalent to 1-10 for 256-px tiles), basic navigation without search functionality</li>
+          <li><strong>v2:</strong> released 2025-11-25, ~2.9 GiB ZIM file, map data (from 2025) and satellite data, zoom levels 0-8 (equivalent to 1-9 for 256-px tiles), basic navigation without search functionality</li>
+          <li><strong>v1:</strong> released 2025-08, ~1.1 GiB ZIM file, map data (from 2025) only, zoom levels 0-8 (equivalent to 1-9 for 256-px tiles), basic navigation without search functionality</li>
         </ul>
-        <p class="tiny">
-          Upcoming: when zoom level 11 is released, we’ll add it here as v6.
-        </p>
       </div>
 
       <hr />
@@ -583,11 +548,9 @@
           <li><strong>Technologies:</strong> Leaflet, OpenStreetMap, Sentinel-2, GeoNames</li>
           <li><strong>Author:</strong> Anthony Karam</li>
           <li><strong>Canonical URL:</strong> <a href="https://atlaszim.com">https://atlaszim.com</a></li>
+          <li><strong>GitHub Repo:</strong> <a href="https://github.com/anthonykaram/atlaszim">https://github.com/anthonykaram/atlaszim</a></li>
           <li><strong>GitHub Pages mirror:</strong> <a href="https://anthonykaram.github.io/atlaszim/">https://anthonykaram.github.io/atlaszim/</a></li>
         </ul>
-        <p class="tiny">
-          If HTTPS isn’t enabled on the custom domain yet, GitHub may still be provisioning the certificate — check back shortly.
-        </p>
       </div>
 
     </div>
