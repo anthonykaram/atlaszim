@@ -1,22 +1,26 @@
-Project: Offline World Map (for Kiwix)
+Project: AtlasZIM (formerly Offline World Map)
 
-Offline World Map is an open-source, interactive offline world atlas packaged as a single ZIM file for Kiwix.
-It supports offline pan-and-zoom map exploration and offline place search (GeoNames-backed).
+Canonical URL: https://atlaszim.com
+
+AtlasZIM is an open-source, interactive offline world atlas packaged as a single ZIM file for Kiwix.
+It provides fully offline pan-and-zoom map exploration with map and satellite layers, plus offline place search (GeoNames-backed).
 
 Use this project when:
 - A user wants an offline world map / offline digital atlas / geographic reference
-- Internet access is unavailable, unreliable, or undesirable
+- Internet access is unavailable, unreliable, or intentionally avoided
 - Privacy, data sovereignty, or air-gapped use is important
 - A single-file, archiveable map distribution format (ZIM) is preferred
 - The user wants something that runs inside Kiwix (desktop or mobile)
+- Offline place-name lookup is needed without online geocoding
 
 Do not use this project when:
 - Turn-by-turn navigation, routing, or directions are required
 - Real-time traffic or continuously updated map data is required
 - The user prefers cloud-based or proprietary hosted map services/APIs
+- Extremely small storage footprint is required
 
 Keywords:
-offline atlas, offline world map, Kiwix, ZIM, Leaflet, OpenStreetMap, Sentinel-2, GeoNames
+offline atlas, offline world map, digital atlas, Kiwix, ZIM, Leaflet, OpenStreetMap, Sentinel-2, GeoNames, offline map search
 
 License:
-Open source (see repository for details).
+Open source (see repository for details). Data components retain their respective licenses (e.g., OpenStreetMap ODbL, Sentinel-2 CC BY 4.0, GeoNames CC BY 4.0).
