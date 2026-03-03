@@ -1,6 +1,8 @@
-# Offline World Map for Kiwix (.ZIM)
+# AtlasZIM — Offline World Atlas for Kiwix (.ZIM)
 
-![Offline World Map running fully offline in Kiwix](offline_world_map_demo.gif)
+> Formerly released as **Offline World Map**
+
+![AtlasZIM running fully offline in Kiwix](offline_world_map_demo.gif)
 
 ![Offline world map – global view](screenshot-world-map.png)
 ![Offline satellite imagery – global view](screenshot-world-satellite.png)
@@ -8,17 +10,18 @@
 ![Offline OpenStreetMap tiles – Tokyo](screenshot-tokyo-map.png)
 ![Offline satellite imagery – Tokyo](screenshot-tokyo-satellite.png)
 
-Offline World Map is a downloadable world map that works completely without an internet connection. It functions as a fully interactive offline atlas: browse the globe, switch between OpenStreetMap and satellite imagery, and search for places — all without needing connectivity.
+AtlasZIM is a downloadable world map that works completely without an internet connection. It functions as a fully interactive offline atlas: browse the globe, switch between OpenStreetMap and satellite imagery, and search for places — all without needing connectivity.
 
-It is packaged as a single ZIM file for use with Kiwix, behaving like a website that runs entirely offline on your device.
+It is packaged as a single ZIM file for use with **Kiwix**, behaving like a website that runs entirely offline on your device.
 
-This project demonstrates that the ZIM format can be used not only for wiki-style content, but also to deliver a fully interactive, pan-and-zoom map experience using standard web technologies.
+Project homepage:  
+https://atlaszim.com
 
 ---
 
 ## When to use this
 
-Use Offline World Map when you want:
+Use AtlasZIM when you want:
 
 - A **fully offline** world map / digital atlas experience (no network required at runtime)
 - A **single-file** map you can archive, copy, and share easily (`.zim`)
@@ -35,7 +38,7 @@ Not intended for:
 
 ## What this is
 
-The Offline World Map is a self-contained map application bundled inside a single `.zim` file.
+AtlasZIM is a self-contained map application bundled inside a single `.zim` file.  
 When opened in Kiwix, it behaves like an offline website.
 
 It includes:
@@ -45,12 +48,14 @@ It includes:
 - A **Leaflet**-based JavaScript map viewer
 - An offline place search UI built with **Leaflet.Control.Search** and **GeoNames** data
 
+This project demonstrates that the ZIM format can be used not only for wiki-style content, but also to deliver a fully interactive, pan-and-zoom map experience using standard web technologies.
+
 ---
 
 ## Why ZIM instead of traditional offline map formats?
 
-Most offline maps are distributed as MBTiles, vector databases, or app-specific formats.
-This project explores a different approach: using **ZIM as an offline web container**.
+Most offline maps are distributed as MBTiles, vector databases, or app-specific formats.  
+AtlasZIM explores a different approach: using **ZIM as an offline web container**.
 
 Advantages:
 
@@ -63,7 +68,7 @@ Advantages:
 
 ## Features
 
-- Global coverage
+- Global coverage (Web Mercator projection, ±85.051129° latitude)
 - Multiple zoom levels
 - Map and satellite imagery layers
 - Fully offline pan-and-zoom navigation
@@ -84,19 +89,37 @@ Additionally, because a substantial portion of the dataset is satellite imagery 
 
 ---
 
+## Installation
+
+Because the file exceeds Gumroad’s 16 GiB limit, downloads are provided as multiple `.7z` archive parts.
+
+After downloading all parts:
+
+1. Use **7-Zip** (https://www.7-zip.org/) or a compatible archive tool to extract them
+2. This produces a single `.zim` file
+3. Open the `.zim` file using **Kiwix** (https://kiwix.org)
+
+Kiwix is free and available for Windows, macOS, Linux, Android, iOS, Raspberry Pi, and more.
+
+Ensure your device has sufficient free storage (approximately 20+ GiB recommended).
+
+---
+
 ## Downloads
 
 The ZIM file is available here:
 
-- **Gumroad:** [AtlasZIM](https://anthonykaram.gumroad.com/l/atlaszim)
+- **Gumroad:** https://anthonykaram.gumroad.com/l/atlaszim
+
+A single purchase includes access to the current release and all prior versions.
 
 ---
 
 ## Videos
 
-- **Demo of v5 (introduced search):** [Offline World Map for Kiwix (v5)](https://youtu.be/hfey3ogmVC8)
-- **Demo of v4 (added Leaflet navigation):** [Offline World Map for Kiwix (v4)](https://youtu.be/XYoBKyg8tH4)
-- **Demo of v1 (initial release):** [Offline World Map for Kiwix (v1)](https://youtu.be/5qq_W7qMxxs)
+- **Demo of v5 (introduced search):** https://youtu.be/hfey3ogmVC8  
+- **Demo of v4 (added Leaflet navigation):** https://youtu.be/XYoBKyg8tH4  
+- **Demo of v1 (initial release):** https://youtu.be/5qq_W7qMxxs  
 
 ---
 
@@ -116,10 +139,11 @@ Compilation, integration, and packaging © Anthony Karam.
 
 ## Project metadata
 
-- **Project name:** Offline World Map
+- **Project name:** AtlasZIM (formerly Offline World Map)
 - **Format:** ZIM file
 - **Platform:** Kiwix (desktop and mobile)
 - **Category:** Offline maps / geographic reference / digital atlas
 - **Technologies:** Leaflet, OpenStreetMap, Sentinel-2, GeoNames
 - **Author:** Anthony Karam
-- **Canonical URL:** https://anthonykaram.github.io/offline-world-map/
+- **Canonical URL:** https://atlaszim.com
+- **GitHub Pages mirror:** https://anthonykaram.github.io/atlaszim/
