@@ -1,4 +1,4 @@
-# AtlasZIM — Offline World Atlas for Kiwix (.ZIM)
+![map_screencap](https://github.com/user-attachments/assets/d2f42e15-b575-4a7c-afcf-ee3c18fa415a)# AtlasZIM — Offline World Atlas for Kiwix (.ZIM)
 
 > Formerly released as **Offline World Map**
 
@@ -95,9 +95,9 @@ Because the file exceeds Gumroad’s 16 GiB limit, downloads are provided as mul
 
 After downloading all parts:
 
-1. Use **7-Zip** (https://www.7-zip.org/) or a compatible archive tool to extract them
+1. Use **7-Zip** (https://www.7-zip.org) or a compatible archive tool to extract them
 2. This produces a single `.zim` file
-3. Open the `.zim` file using **Kiwix** (https://kiwix.org)
+3. Open the `.zim` file using **Kiwix** (https://get.kiwix.org/en/solutions/applications/kiwix-reader)
 
 Kiwix is free and available for Windows, macOS, Linux, Android, iOS, Raspberry Pi, and more.
 
