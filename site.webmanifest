@@ -2,6 +2,7 @@
   "name": "AtlasZIM",
   "short_name": "AtlasZIM",
   "start_url": "https://atlaszim.com/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0b0f17",
   "theme_color": "#0b0f17",
