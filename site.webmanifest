@@ -1,0 +1,15 @@
+{
+  "name": "AtlasZIM",
+  "short_name": "AtlasZIM",
+  "start_url": "https://atlaszim.com/",
+  "display": "standalone",
+  "background_color": "#0b0f17",
+  "theme_color": "#0b0f17",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
