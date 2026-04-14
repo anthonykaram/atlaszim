@@ -1,14 +1,14 @@
-![map_screencap](https://github.com/user-attachments/assets/d2f42e15-b575-4a7c-afcf-ee3c18fa415a)# AtlasZIM — Offline World Atlas for Kiwix (.ZIM)
+# AtlasZIM — Offline World Atlas
 
 > Formerly released as **Offline World Map**
 
 ![AtlasZIM running fully offline in Kiwix](atlaszim_demo.gif)
 
-![Offline world map – global view](screenshot-world-map.png)
-![Offline satellite imagery – global view](screenshot-world-satellite.png)
+![Map – global view](screenshot-world-map.png)
+![Satellite imagery – global view](screenshot-world-satellite.png)
 
-![Offline OpenStreetMap tiles – Tokyo](screenshot-tokyo-map.png)
-![Offline satellite imagery – Tokyo](screenshot-tokyo-satellite.png)
+![Map – Tokyo](screenshot-tokyo-map.png)
+![Satellite imagery – Tokyo](screenshot-tokyo-satellite.png)
 
 AtlasZIM is a downloadable world map that works completely without an internet connection. It functions as a fully interactive offline atlas: browse the globe, switch between OpenStreetMap and satellite imagery, and search for places — all without needing connectivity.
 
@@ -91,7 +91,7 @@ Additionally, because a substantial portion of the dataset is satellite imagery 
 
 ## Installation
 
-Because the file exceeds Gumroad’s 16 GiB limit, downloads are provided as multiple `.7z` archive parts.
+Because the file exceeds Gumroad’s 16 GiB limit, downloads of the latest versions are provided as multiple `.7z` archive parts.
 
 After downloading all parts:
 
