@@ -569,14 +569,83 @@
         <p>
           A single purchase provides access to the current release and all prior versions.
         </p>
-        <ul>
-          <li><strong>v6 (current):</strong> released 2026-04-22, ~35.0 GiB ZIM file, map data (from 2025-2026) and satellite data, zoom levels 0-11, Leaflet-based navigation with search functionality</li>
-          <li><strong>v5:</strong> released 2026-01-21, ~18.7 GiB ZIM file, map data (from 2025) and satellite data, zoom levels 0-10, Leaflet-based navigation with search functionality</li>
-          <li><strong>v4:</strong> released 2025-12-06 (with minor update 2026-01-14), ~18.7 GiB ZIM file, map data (from 2025) and satellite data, zoom levels 0-10, Leaflet-based navigation without search functionality</li>
-          <li><strong>v3:</strong> released 2025-11-25, ~10.0 GiB ZIM file, map data (from 2025) and satellite data, zoom levels 0-9 (equivalent to 1-10 for 256-px tiles), basic navigation without search functionality</li>
-          <li><strong>v2:</strong> released 2025-11-25, ~2.9 GiB ZIM file, map data (from 2025) and satellite data, zoom levels 0-8 (equivalent to 1-9 for 256-px tiles), basic navigation without search functionality</li>
-          <li><strong>v1:</strong> released 2025-08, ~1.1 GiB ZIM file, map data (from 2025) only, zoom levels 0-8 (equivalent to 1-9 for 256-px tiles), basic navigation without search functionality</li>
-        </ul>
+        <style>
+          table {
+            border-collapse: collapse;
+            width: 100%;
+          }
+          th, td {
+            border: 1px solid #ddd;
+            padding: 6px 10px;
+            text-align: left;
+          }
+          th {
+            border-bottom: 2px solid #999;
+          }
+        </style>
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Version</th>
+              <th>Release Date</th>
+              <th>Size</th>
+              <th>Data</th>
+              <th>Zoom</th>
+              <th>Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>v6 (current)</td>
+              <td>2026-04-22</td>
+              <td>~35.0 GiB</td>
+              <td>Map tiles (from 2025-2026) and satellite tiles</td>
+              <td>0–11</td>
+              <td>Leaflet-based navigation with search functionality</td>
+            </tr>
+            <tr>
+              <td>v5</td>
+              <td>2026-01-21</td>
+              <td>~18.7 GiB</td>
+              <td>Map tiles (from 2025) and satellite tiles</td>
+              <td>0–10</td>
+              <td>Leaflet-based navigation with search functionality</td>
+            </tr>
+            <tr>
+              <td>v4</td>
+              <td>2025-12-06 (with minor update 2026-01-14)</td>
+              <td>~18.7 GiB</td>
+              <td>Map tiles (from 2025) and satellite tiles</td>
+              <td>0–10</td>
+              <td>Leaflet-based navigation without search functionality</td>
+            </tr>
+            <tr>
+              <td>v3</td>
+              <td>2025-11-25</td>
+              <td>~10.0 GiB</td>
+              <td>Map tiles (from 2025) and satellite tiles</td>
+              <td>0–9 (equivalent to 1-10 for 256-px tiles)</td>
+              <td>Basic navigation without search functionality</td>
+            </tr>
+            <tr>
+              <td>v2</td>
+              <td>2025-11-25</td>
+              <td>~2.9 GiB</td>
+              <td>Map tiles (from 2025) and satellite tiles</td>
+              <td>0–8 (equivalent to 1-9 for 256-px tiles)</td>
+              <td>Basic navigation without search functionality</td>
+            </tr>
+            <tr>
+              <td>v1</td>
+              <td>2025-08</td>
+              <td>~1.1 GiB</td>
+              <td>Map tiles (from 2025) only</td>
+              <td>0–8 (equivalent to 1-9 for 256-px tiles)</td>
+              <td>Basic navigation without search functionality</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       
       <hr />
