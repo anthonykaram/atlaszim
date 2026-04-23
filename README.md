@@ -117,6 +117,7 @@ A single purchase includes access to the current release and all prior versions.
 
 ## Videos
 
+- **Demo of v6 (introduced zoom level 11):** https://youtu.be/_jHgLT9GgQ8
 - **Demo of v5 (introduced search):** https://youtu.be/hfey3ogmVC8  
 - **Demo of v4 (added Leaflet navigation):** https://youtu.be/XYoBKyg8tH4  
 - **Demo of v1 (initial release):** https://youtu.be/5qq_W7qMxxs  
