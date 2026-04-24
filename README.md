@@ -7,8 +7,8 @@
 ![Map – global view](screenshot-world-map.png)
 ![Satellite imagery – global view](screenshot-world-satellite.png)
 
-![Map – Tokyo](screenshot-tokyo-map.png)
-![Satellite imagery – Tokyo](screenshot-tokyo-satellite.png)
+![Map – NYC](screenshot-nyc-map.png)
+![Satellite imagery – NYC](screenshot-nyc-satellite.png)
 
 AtlasZIM is a downloadable world map that works completely without an internet connection. It functions as a fully interactive offline atlas: browse the globe, switch between OpenStreetMap and satellite imagery, and search for places — all without needing connectivity.
 
