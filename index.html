@@ -259,6 +259,16 @@
     }
 
     .tiny { font-size: 12px; color: var(--muted); }
+    pre {
+      overflow-x: auto;
+      padding: 14px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(0,0,0,0.28);
+      color: var(--text);
+      line-height: 1.45;
+      margin: 14px 0;
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -444,6 +454,84 @@
         </ul>
       </div>
 
+      <hr />
+
+      <div class="card">
+        <h2>Inside the ZIM file</h2>
+        <p>
+          ZIM is an open file format, so AtlasZIM is not an opaque app bundle. Its internal structure can be inspected with standard ZIM tools after download.
+        </p>
+        <p>
+          At a high level, AtlasZIM is a self-contained offline web application: HTML, JavaScript, CSS, map tiles, satellite tiles, search index files, images, and license files are all bundled into a single <code>.zim</code> file.
+        </p>
+
+<pre><code>.
+├── geonames_index
+│   ├── aabe.txt
+│   ├── aach.txt
+│   └── ...
+├── icon.png
+├── images
+│   ├── loader.gif
+│   └── search-icon.png
+├── index.html
+├── leaflet
+│   ├── images
+│   │   ├── layers-2x.png
+│   │   ├── layers.png
+│   │   ├── marker-icon-2x.png
+│   │   ├── marker-icon.png
+│   │   └── marker-shadow.png
+│   ├── leaflet.css
+│   ├── leaflet.js
+│   ├── leaflet.js.map
+│   ├── leaflet-src.esm.js
+│   ├── leaflet-src.esm.js.map
+│   ├── leaflet-src.js
+│   └── leaflet-src.js.map
+├── leaflet-search
+│   ├── leaflet-search.min.css
+│   └── leaflet-search.min.js
+├── licenses
+│   ├── atlaszim.txt
+│   ├── leaflet-control-search.txt
+│   └── leaflet.txt
+├── map_tiles
+│   ├── 0
+│   │   └── 0
+│   │       ├── 0.png
+│   │       └── 0.txt
+│   ├── 1
+│   │   ├── 0
+│   │   │   ├── 0.png
+│   │   │   ├── 0.txt
+│   │   │   ├── 1.png
+│   │   │   └── 1.txt
+│   │   └── 1
+│   │       ├── 0.png
+│   │       ├── 0.txt
+│   │       ├── 1.png
+│   │       └── 1.txt
+│   └── ...
+└── sat_tiles
+    ├── 0
+    │   └── 0
+    │       └── 0.jpg
+    ├── 1
+    │   ├── 0
+    │   │   ├── 0.jpg
+    │   │   └── 1.jpg
+    │   └── 1
+    │       ├── 0.jpg
+    │       └── 1.jpg
+    └── ...</code></pre>
+
+        <p class="tiny">
+          Note: The tree above is truncated (in 3 places) for readability.
+        </p>
+      </div>
+      
+      
       <hr />
 
       <div class="card">
