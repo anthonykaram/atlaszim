@@ -269,6 +269,29 @@
       line-height: 1.45;
       margin: 14px 0;
     }
+
+    details.faqItem {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      padding: 12px 14px;
+      margin: 10px 0;
+    }
+
+    details.faqItem summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    details.faqItem summary:hover {
+      color: var(--link);
+    }
+
+    details.faqItem p,
+    details.faqItem ul {
+      margin-top: 10px;
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -292,6 +315,78 @@
       "priceCurrency": "USD",
       "url": "https://anthonykaram.gumroad.com/l/atlaszim"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does AtlasZIM require internet access?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. After download and setup, AtlasZIM runs fully offline inside Kiwix."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does AtlasZIM work on phones and tablets?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. AtlasZIM works anywhere Kiwix supports ZIM files, including desktop and mobile platforms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does AtlasZIM support routing or turn-by-turn navigation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. AtlasZIM is designed as an offline atlas and geographic reference, not as a routing or navigation application."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does AtlasZIM include search?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. AtlasZIM v5 and later include offline place-name search using bundled GeoNames data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is the file so large?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AtlasZIM includes millions of pre-rendered OpenStreetMap and satellite imagery tiles covering the world across multiple zoom levels."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why ZIM instead of traditional offline map formats?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AtlasZIM uses ZIM as an offline web container so the atlas can be distributed as a single file and opened with Kiwix across supported desktop and mobile platforms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why not use vector tiles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AtlasZIM intentionally uses pre-rendered raster tiles for predictable rendering across Kiwix-supported devices. Vector tiles can reduce storage requirements, but they shift more work to the client device for geometry decoding, rendering, and memory use. Because AtlasZIM also includes satellite imagery, which is inherently raster, vector tiles would not reduce the total size as dramatically in this context."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the map data live or continuously updated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AtlasZIM is an offline snapshot and does not include live traffic, online map APIs, or continuously refreshed map data."
+        }
+      }
+    ]
   }
   </script>
   <link rel="manifest" href="/site.webmanifest">
@@ -342,7 +437,7 @@
               satellite imagery, and search for places — all without needing connectivity.
             </p>
             <p>
-              It runs inside the <a href="https://get.kiwix.org/en/solutions/applications/kiwix-reader">Kiwix</a> reader like an offline website, but everything is bundled into a single ZIM file.
+              It runs inside the <a href="https://get.kiwix.org/en/solutions/applications/kiwix-reader">Kiwix</a> reader like a fully offline web app, including on desktop and mobile devices, but everything is bundled into a single ZIM file.
             </p>
             <p class="tiny">
               Note: this is an offline snapshot. It does not include live traffic, routing, or frequently-refreshed map data.
@@ -457,6 +552,77 @@
       <hr />
 
       <div class="card">
+        <h2>FAQ</h2>
+
+        <details class="faqItem">
+          <summary>Does AtlasZIM require internet access?</summary>
+          <p>
+            No. After download and setup, AtlasZIM runs fully offline inside <a href="https://get.kiwix.org/en/solutions/applications/kiwix-reader">Kiwix</a>. The map tiles, satellite imagery, place search data, JavaScript, CSS, images, and supporting files are bundled into the ZIM file.
+          </p>
+        </details>
+
+        <details class="faqItem">
+          <summary>Does AtlasZIM work on phones and tablets?</summary>
+          <p>
+            Yes. AtlasZIM works anywhere Kiwix supports ZIM files, including desktop and mobile platforms. The practical constraint is storage space, since recent versions of AtlasZIM are large.
+          </p>
+        </details>
+
+        <details class="faqItem">
+          <summary>Does AtlasZIM support routing or turn-by-turn navigation?</summary>
+          <p>
+            No. AtlasZIM is designed as an offline atlas and geographic reference, not as a routing or navigation application. It is useful for browsing, visual reference, and place lookup, but it does not calculate routes or provide directions.
+          </p>
+        </details>
+
+        <details class="faqItem">
+          <summary>Does AtlasZIM include search?</summary>
+          <p>
+            Yes. AtlasZIM v5 and later include offline place-name search using bundled GeoNames data. Search works without an internet connection.
+          </p>
+        </details>
+
+        <details class="faqItem">
+          <summary>Why is the file so large?</summary>
+          <p>
+            AtlasZIM includes millions of pre-rendered OpenStreetMap and satellite imagery tiles covering the world across multiple zoom levels. This makes the download large, but it also allows the atlas to run offline without requesting map tiles from an online service.
+          </p>
+        </details>
+
+        <details class="faqItem">
+          <summary>Why ZIM instead of traditional offline map formats?</summary>
+          <p>
+            Most offline maps are distributed as MBTiles, vector databases, or app-specific formats. AtlasZIM explores a different approach: using <strong>ZIM as an offline web container</strong>.
+          </p>
+          <p>Advantages:</p>
+          <ul>
+            <li><strong>Single-file distribution</strong></li>
+            <li>Works on all platforms supported by <strong><a href="https://get.kiwix.org/en/solutions/applications/kiwix-reader">Kiwix</a></strong> (desktop and mobile)</li>
+            <li>No dedicated map application required</li>
+          </ul>
+        </details>
+
+        <details class="faqItem">
+          <summary>Why not use vector tiles?</summary>
+          <p>
+            AtlasZIM intentionally uses pre-rendered raster tiles rather than vector tiles. Vector tiles can significantly reduce storage requirements, but they shift more work to the client device, including geometry decoding, rendering, and memory use.
+          </p>
+          <p>
+            Raster tiles are simple for Kiwix to serve and lightweight for the browser to display, which helps AtlasZIM behave more consistently across older and lower-power devices. Also, because a substantial portion of the dataset is satellite imagery — which is inherently raster — vector tiles would not reduce the total size as dramatically in this context. The goal is maximum compatibility and predictable performance rather than minimal disk usage.
+          </p>
+        </details>
+
+        <details class="faqItem">
+          <summary>Is the map data live or continuously updated?</summary>
+          <p>
+            AtlasZIM is an offline snapshot. It does not include live traffic, real-time updates, online map APIs, or continuously refreshed map data.
+          </p>
+        </details>
+      </div>
+
+      <hr />
+
+      <div class="card">
         <h2>Inside the ZIM file</h2>
         <p>
           ZIM is an open file format, so AtlasZIM is not an opaque app bundle. Its internal structure can be inspected with standard ZIM tools after download.
@@ -530,23 +696,6 @@
           Note: The tree above is truncated (in 3 places) for readability.
         </p>
       </div>
-      
-      
-      <hr />
-
-      <div class="card">
-        <h2>Why ZIM instead of traditional offline map formats?</h2>
-        <p>
-          Most offline maps are distributed as MBTiles, vector databases, or app-specific formats. This project explores
-          a different approach: using <strong>ZIM as an offline web container</strong>.
-        </p>
-        <p>Advantages:</p>
-        <ul>
-          <li><strong>Single-file distribution</strong></li>
-          <li>Works on all platforms supported by <strong><a href="https://get.kiwix.org/en/solutions/applications/kiwix-reader">Kiwix</a></strong> (desktop and mobile)</li>
-          <li>No dedicated map application required</li>
-        </ul>
-      </div>
 
       <hr />
 
@@ -561,31 +710,6 @@
           <li>Runs entirely inside the <a href="https://get.kiwix.org/en/solutions/applications/kiwix-reader">Kiwix</a> reader</li>
           <li>Coverage extends between ±85.051129° latitude due to use of the Web Mercator projection.</li>
         </ul>
-      </div>
-
-      <hr />
-
-      <div class="card">
-        <h2>Design decisions</h2>
-        <p>
-          This project intentionally uses pre-rendered raster tiles rather than vector tiles.
-        </p>
-        <p>
-          While vector tiles can significantly reduce storage requirements, they shift cost to client-side computation
-          (geometry decoding, rendering, memory usage), which is difficult to predict across the wide range of devices
-          that run Kiwix.
-        </p>
-        <p>
-          By serving simple raster tiles from a ZIM file, the map remains lightweight to render and behaves consistently
-          even on older or low-power devices. The large file size also acts as a natural capability filter: devices that
-          can store tens of gigabytes of tiles almost certainly have sufficient CPU and RAM to handle raster rendering
-          smoothly.
-        </p>
-        <p>
-          Additionally, because a substantial portion of the dataset is satellite imagery — which is inherently raster —
-          vector tiles would not reduce total size as dramatically in this context. The goal is maximum compatibility and
-          predictable performance rather than minimal disk usage.
-        </p>
       </div>
 
       <hr />
