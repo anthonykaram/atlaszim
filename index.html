@@ -259,6 +259,7 @@
     }
 
     .tiny { font-size: 12px; color: var(--muted); }
+
     pre {
       overflow-x: auto;
       padding: 14px 14px;
@@ -292,31 +293,102 @@
     details.faqItem ul {
       margin-top: 10px;
     }
+
+    .reviewCard {
+      padding: 16px 18px;
+      border: 1px solid rgba(34,197,94,0.28);
+      border-radius: 12px;
+      background: rgba(34,197,94,0.07);
+    }
+
+    .stars {
+      color: #fbbf24;
+      font-size: 22px;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .reviewScore {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .reviewQuote {
+      margin: 16px 0 12px 0;
+      padding-left: 16px;
+      border-left: 3px solid rgba(34,197,94,0.55);
+      color: var(--text);
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    .reviewMeta {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
   </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": "https://atlaszim.com/#atlaszim",
     "name": "AtlasZIM",
     "alternateName": "Offline World Map",
-    "applicationCategory": "GeographicApplication",
+    "applicationCategory": "ReferenceApplication",
+    "applicationSubCategory": "Offline map and digital atlas",
     "operatingSystem": "Windows, macOS, Linux, Android, iOS",
-    "description": "AtlasZIM is an offline world atlas packaged as a single ZIM file for the Kiwix reader, allowing users to browse OpenStreetMap and satellite imagery and search places without internet access.",
+    "softwareVersion": "6",
+    "description": "AtlasZIM is a downloadable offline world atlas packaged as a single ZIM file for the Kiwix reader, allowing users to browse OpenStreetMap and satellite imagery and search places without internet access.",
     "url": "https://atlaszim.com/",
     "image": "https://atlaszim.com/og-image.jpg",
+    "encodingFormat": "ZIM",
+    "isAccessibleForFree": false,
     "downloadUrl": "https://anthonykaram.gumroad.com/l/atlaszim",
+    "acquireLicensePage": "https://anthonykaram.gumroad.com/l/atlaszim",
     "author": {
       "@type": "Person",
       "name": "Anthony Karam"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 5,
+      "ratingCount": 1,
+      "reviewCount": 1,
+      "bestRating": 5,
+      "worstRating": 1
+    },
+    "review": {
+      "@type": "Review",
+      "datePublished": "2026-07-10",
+      "author": {
+        "@type": "Person",
+        "name": "Michael Stewart"
+      },
+      "reviewBody": "I appreciate having a .zim formatted map with associated satellite view available through Kiwix. Mr. Karam continues to improve the zoom level with each release and a single purchase applies to all subsequent releases.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5,
+        "bestRating": 5,
+        "worstRating": 1
+      }
     },
     "offers": {
       "@type": "Offer",
       "price": "50.00",
       "priceCurrency": "USD",
-      "url": "https://anthonykaram.gumroad.com/l/atlaszim"
+      "availability": "https://schema.org/OnlineOnly",
+      "url": "https://anthonykaram.gumroad.com/l/atlaszim",
+      "seller": {
+        "@type": "Person",
+        "name": "Anthony Karam"
+      }
     }
   }
   </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -389,6 +461,7 @@
     ]
   }
   </script>
+
   <link rel="manifest" href="/site.webmanifest">
 </head>
 
@@ -447,6 +520,10 @@
           <div class="card">
             <h2>Quick facts</h2>
             <div class="kvs">
+              <div class="kv">
+                <div class="k">Product type</div>
+                <div class="v">Digital download</div>
+              </div>
               <div class="kv">
                 <div class="k">Format</div>
                 <div class="v">ZIM file</div>
@@ -510,6 +587,24 @@
             <img src="screenshot-nyc-satellite.png" alt="Offline satellite imagery — NYC" />
             <figcaption>Offline satellite imagery — NYC.</figcaption>
           </figure>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h2>Customer review</h2>
+        <div class="reviewCard">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="reviewScore">
+            <strong>5.0 out of 5</strong> based on 1 customer review
+          </p>
+          <blockquote class="reviewQuote">
+            “I appreciate having a .zim formatted map with associated satellite view available through Kiwix. Mr. Karam continues to improve the zoom level with each release and a single purchase applies to all subsequent releases.”
+          </blockquote>
+          <p class="reviewMeta">
+            — Michael Stewart, Gumroad customer review, July 10, 2026
+          </p>
         </div>
       </div>
 
@@ -642,19 +737,19 @@
 │   └── search-icon.png
 ├── index.html
 ├── leaflet
-│   ├── images
-│   │   ├── layers-2x.png
-│   │   ├── layers.png
-│   │   ├── marker-icon-2x.png
-│   │   ├── marker-icon.png
-│   │   └── marker-shadow.png
-│   ├── leaflet.css
-│   ├── leaflet.js
-│   ├── leaflet.js.map
-│   ├── leaflet-src.esm.js
-│   ├── leaflet-src.esm.js.map
-│   ├── leaflet-src.js
-│   └── leaflet-src.js.map
+│   ├── images
+│   │   ├── layers-2x.png
+│   │   ├── layers.png
+│   │   ├── marker-icon-2x.png
+│   │   ├── marker-icon.png
+│   │   └── marker-shadow.png
+│   ├── leaflet.css
+│   ├── leaflet.js
+│   ├── leaflet.js.map
+│   ├── leaflet-src.esm.js
+│   ├── leaflet-src.esm.js.map
+│   ├── leaflet-src.js
+│   └── leaflet-src.js.map
 ├── leaflet-search
 │   ├── leaflet-search.min.css
 │   └── leaflet-search.min.js
@@ -663,30 +758,30 @@
 │   ├── leaflet-control-search.txt
 │   └── leaflet.txt
 ├── map_tiles
-│   ├── 0
-│   │   └── 0
-│   │       ├── 0.png
-│   │       └── 0.txt
-│   ├── 1
-│   │   ├── 0
-│   │   │   ├── 0.png
-│   │   │   ├── 0.txt
-│   │   │   ├── 1.png
-│   │   │   └── 1.txt
-│   │   └── 1
-│   │       ├── 0.png
-│   │       ├── 0.txt
-│   │       ├── 1.png
-│   │       └── 1.txt
+│   ├── 0
+│   │   └── 0
+│   │       ├── 0.png
+│   │       └── 0.txt
+│   ├── 1
+│   │   ├── 0
+│   │   │   ├── 0.png
+│   │   │   ├── 0.txt
+│   │   │   ├── 1.png
+│   │   │   └── 1.txt
+│   │   └── 1
+│   │       ├── 0.png
+│   │       ├── 0.txt
+│   │       ├── 1.png
+│   │       └── 1.txt
 │   └── ...
 └── sat_tiles
     ├── 0
-    │   └── 0
-    │       └── 0.jpg
+    │   └── 0
+    │       └── 0.jpg
     ├── 1
     │   ├── 0
-    │   │   ├── 0.jpg
-    │   │   └── 1.jpg
+    │   │   ├── 0.jpg
+    │   │   └── 1.jpg
     │   └── 1
     │       ├── 0.jpg
     │       └── 1.jpg
@@ -718,6 +813,9 @@
         <h2>Downloads</h2>
         <p>
           <strong>Price:</strong> $50 — one-time purchase, includes access to the current release and all prior versions.
+        </p>
+        <p>
+          <strong>Digital product:</strong> AtlasZIM is delivered electronically as a download. No physical item is shipped.
         </p>
         <div class="ctaRow">
           <a class="btn btnPrimary gumroad-button"
@@ -898,6 +996,7 @@
         <h2>Project metadata</h2>
         <ul>
           <li><strong>Project name:</strong> AtlasZIM (formerly Offline World Map)</li>
+          <li><strong>Product type:</strong> Digital download</li>
           <li><strong>Format:</strong> ZIM file</li>
           <li><strong>Platform:</strong> <a href="https://get.kiwix.org/en/solutions/applications/kiwix-reader">Kiwix</a> (desktop and mobile)</li>
           <li><strong>Category:</strong> Offline maps / geographic reference / digital atlas</li>
